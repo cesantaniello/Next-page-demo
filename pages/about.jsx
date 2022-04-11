@@ -1,11 +1,11 @@
-import Head from 'next/head'
 import Link from 'next/link'
-import { Navbar } from '../components/Navbar'
+
 import { MainLayout } from '../components/layouts/MainLayout'
+import { DarkLayout } from '../components/layouts/DarkLayout'
 
 export default function AboutPage() {
   return (
-    <MainLayout>
+    <>
       <h1 className={'title'}>
         Ir a <Link href="/"><a>Home</a></Link>
       </h1>
@@ -14,6 +14,16 @@ export default function AboutPage() {
         Get started by editing{' '}
         <code className={'code'}>pages/index.js</code>
       </p>
+    </>
+  )
+}
+
+AboutPage.getLayout = function getLayout(page){
+  return (
+    <MainLayout>
+      <DarkLayout>
+        {page}
+      </DarkLayout>
     </MainLayout>
   )
 }
